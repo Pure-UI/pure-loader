@@ -11,7 +11,7 @@ module.exports = function( content ) {
 	this.cacheable();
 
 	var loaderContext = this;
-	var options = this.options.regularjs || this.options.regular || {};
+	var options = this.options.pure || {};
 	var filePath = this.resourcePath;
 	var fileName = path.basename( filePath );
 	var moduleId = '_r-' + hash( filePath );
@@ -145,28 +145,10 @@ module.exports = function( content ) {
 		output += '__regular_template__ = ' + getRequire( 'template', template, 0, hasScopedStyle )
 	}
 
-	// find Regular
-	output += 'var Regular = require( "regularjs" );\n\n';
-
 	output += 'var __rs__ = __regular_script__ || {};\n' +
 		'if (__rs__.__esModule) __rs__ = __rs__.default;\n' +
-		'if (Regular.__esModule) Regular = Regular.default;\n\n' +
-		'var __Component__, __cps__;\n' +
-		'if( typeof __rs__ === "object" ) {\n' +
-		'	__rs__.template = __regular_template__;\n' +
-		'	__Component__ = Regular.extend(__rs__);\n' +
-		'	__cps__ = __rs__.components || __rs__.component;\n' +
-		'	if( typeof __cps__ === "object" ) {\n' +
-		'		for( var i in __cps__ ) {\n' +
-		'			__Component__.component(i, __cps__[ i ]);\n' +
-		'		}\n' +
-		'	}\n' +
-		'} else if( typeof __rs__ === "function" && ( __rs__.prototype instanceof Regular ) ) {\n' +
-		'	__rs__.prototype.template = __regular_template__;\n' +
-		'	__Component__ = __rs__;\n' +
-		'}\n';
-
-	output += 'module.exports = __Component__;';
+		'__rs__.template = __regular_template__;\n' +
+		'module.exports = __rs__;';
 
 	// done
 	return output;

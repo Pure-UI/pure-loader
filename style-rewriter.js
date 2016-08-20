@@ -53,7 +53,7 @@ module.exports = function( content, map ) {
 	var cb = this.async();
 
 	var query = loaderUtils.parseQuery( this.query );
-	var options = this.options.regularjs || this.options.regular || {};
+	var options = this.options.pure || {};
 
 	var autoprefixOptions = options.autoprefixer
 	var postcssOptions = options.postcss

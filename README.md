@@ -1,13 +1,11 @@
-# regular-loader [![npm package](https://img.shields.io/npm/v/regular-loader.svg?style=flat-square)](https://www.npmjs.org/package/regular-loader)
+# pure-loader [![npm package](https://img.shields.io/npm/v/pure-loader.svg?style=flat-square)](https://www.npmjs.org/package/pure-loader)
 
-> webpack loader for [regularjs](https://github.com/regularjs/regular)
-
-Here is a simple example using regular-loader [check it out](https://github.com/fengzilong/regular-loader-example)
+> webpack loader for [pure](https://github.com/fengzilong/pure)
 
 ## Installation
 
 ```bash
-$ npm i regular-loader
+$ npm i pure-loader
 ```
 
 ## Usage
@@ -24,11 +22,11 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.rgl$/,
-				loader: 'regular'
+				loader: 'pure'
 			}
 		]
 	},
-	regular: {
+	pure: {
 		loaders: {
 			css: ExtractTextPlugin.extract( 'css' ),
 			mcss: ExtractTextPlugin.extract( 'css!mcss' )
@@ -39,13 +37,6 @@ module.exports = {
 		new ExtractTextPlugin( 'app.css' )
 	]
 };
-```
-
-index.js
-
-```js
-import App from './app.rgl';
-new App().$inject( document.body );
 ```
 
 app.rgl
@@ -81,23 +72,6 @@ app.rgl
 			'Button': Button,
 		}
 	}
-</script>
-```
-
-button.rgl
-
-```html
-<template>
-	<button>{ text }</button>
-</template>
-
-<script>
-	import Regular from 'regularjs';
-
-	// or export component constructor here
-	export default Regular.extend({
-		// ...
-	});
 </script>
 ```
 

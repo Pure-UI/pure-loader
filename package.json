@@ -1,14 +1,12 @@
 {
-  "name": "regular-loader",
-  "version": "0.1.0",
+  "name": "pure-loader",
+  "version": "0.0.1",
   "keywords": [
-    "regularjs",
-    "regular",
-    "rgl",
+    "pure",
     "webpack",
     "loader"
   ],
-  "description": "webpack loader for regularjs",
+  "description": "webpack loader for pure",
   "main": "index.js",
   "scripts": {},
   "maintainers": [
