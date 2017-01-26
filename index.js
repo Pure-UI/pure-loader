@@ -23,7 +23,7 @@ module.exports = function( content ) {
 	var defaultLoaders = {
 		html: precompileLoaderPath + '!' + htmlLoaderPath,
 		css: 'style-loader!css-loader',
-		js: 'babel-loader?presets[]=' + require.resolve( 'babel-preset-es2015' ) + '&plugins[]=transform-runtime&comments=false'
+		js: 'babel-loader?presets[]=' + require.resolve( 'babel-preset-es2015' ) + '&plugins[]=' + require.resolve( 'transform-runtime' ) + '&comments=false'
 	};
 	var defaultLang = {
 		template: 'html',
